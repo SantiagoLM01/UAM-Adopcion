@@ -6,7 +6,7 @@ import {
     NavLink,
     Navigate
 } from 'react-router-dom';
-import { routes } from './routes';
+import ShoppingPage from '../02-component-patterns/pages/ShoppingPage';
 
 
 export const Navigation = () => {
@@ -17,23 +17,34 @@ export const Navigation = () => {
                     <nav>
                         <img src={'/vite.svg'} alt="React Logo" />
                         <ul>
-                            {routes.map(route => (
-                                <li key={route.to}>
-                                    <NavLink to={route.to} className={({ isActive }) => isActive ? "nav-active" : ""}>{route.name}</NavLink>
+                          
+                                <li >
+                                    <NavLink to='/shopping' className={({ isActive }) => isActive ? "nav-active" : ""}>Shopping</NavLink>
                                 </li>
-                            ))}
+                                <li >
+                                    <NavLink to='about' className={({ isActive }) => isActive ? "nav-active" : ""}>about</NavLink>
+                                </li>
+                                <li >
+                                    <NavLink to='users' className={({ isActive }) => isActive ? "nav-active" : ""}>users</NavLink>
+                                </li>
+                        
 
                         </ul>
                     </nav>
 
                     <Routes>
-                        {routes.map(route => (
-                            <Route key={route.path} path={route.path} element={<route.Component></route.Component>}></Route>
+                     
+                            <Route path='/shopping' element={<ShoppingPage/>}></Route>
 
-                        ))}
+                            <Route path='/about' element={<h1>about</h1>}></Route>
+
+                            <Route path='/users' element={<h1>Users</h1>}></Route>
 
 
-                        <Route path='/*' element={<Navigate to={routes[0].to}></Navigate>}></Route>
+                
+
+
+                        <Route path='/*' element={<Navigate to='/shopping'></Navigate>}></Route>
 
 
 
