@@ -9,4 +9,4 @@ export const ProductCard: ProductCardHOCProps = Object.assign(ProductCardHOC , {
     Title: ProductTitle,
     Image: ProductImage,
     Buttons: ProductButtons
-})
+}) 
